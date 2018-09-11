@@ -36,7 +36,8 @@ class Employee
 
   def employee_numb
     #need to find a way to counter any duplicate employee numbers
-    @employee_numb = rand(max=1000)
+    time = Time.new
+    @employee_numb = time.nsec
   end
 
   def employee_details
@@ -53,7 +54,7 @@ class Employee
     #Build fail safe
     p 'Do you want to add another employee? Yes or No?'
     answer = get_string
-    if answer == 'Yes'
+    if (answer.include? 'Y') || (answer.include? 'y')
       new_employee = Employee.new
       new_employee.enter_first_name
       new_employee.enter_surname
