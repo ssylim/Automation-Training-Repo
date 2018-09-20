@@ -54,7 +54,7 @@ class Employee
     #Build fail safe
     p 'Do you want to add another employee? Yes or No?'
     answer = get_string
-    if (answer.include? 'Y') || (answer.include? 'y')
+    if (answer.start_with? 'Y') || (answer.start_with? 'y')
       new_employee = Employee.new
       new_employee.enter_first_name
       new_employee.enter_surname
@@ -63,8 +63,15 @@ class Employee
       new_employee.employee_details
       new_employee.data_entry
       new_employee.end_of_input
+
+    else if (answer.start_with? 'N') || (answer.start_with? 'n')
+      p 'Thanks for adding a new employee'
+
     else
-      p 'Thanks for adding a new employee!'
+      p  'You did not put Y or N. Please try again'
+      end_of_input
+    end
+
     end
   end
 
