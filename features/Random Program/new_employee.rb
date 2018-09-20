@@ -68,7 +68,7 @@ class Employee
       p 'Thanks for adding a new employee'
 
     else
-      p  'You did not put Y or N. Please try input again'
+      p  'You did not put Y or N. Please try again'
       end_of_input
     end
 
